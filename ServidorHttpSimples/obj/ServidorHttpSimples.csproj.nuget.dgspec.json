@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ProgramaçãoArq\\ServidorHttpSimples\\ServidorHttpSimples.csproj": {}
+    "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj": {}
   },
   "projects": {
-    "C:\\ProgramaçãoArq\\ServidorHttpSimples\\ServidorHttpSimples.csproj": {
+    "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProgramaçãoArq\\ServidorHttpSimples\\ServidorHttpSimples.csproj",
+        "projectUniqueName": "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj",
         "projectName": "ServidorHttpSimples",
-        "projectPath": "C:\\ProgramaçãoArq\\ServidorHttpSimples\\ServidorHttpSimples.csproj",
+        "projectPath": "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj",
         "packagesPath": "C:\\Users\\santa\\.nuget\\packages\\",
-        "outputPath": "C:\\ProgramaçãoArq\\ServidorHttpSimples\\obj\\",
+        "outputPath": "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
