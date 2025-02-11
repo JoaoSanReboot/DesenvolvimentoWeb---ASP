@@ -1,0 +1,15 @@
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\bin\Debug\net9.0\ServidorHttpSimples.exe
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\bin\Debug\net9.0\ServidorHttpSimples.deps.json
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\bin\Debug\net9.0\ServidorHttpSimples.runtimeconfig.json
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\bin\Debug\net9.0\ServidorHttpSimples.dll
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\bin\Debug\net9.0\ServidorHttpSimples.pdb
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\obj\Debug\net9.0\ServidorHttpSimples.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\obj\Debug\net9.0\ServidorHttpSimples.AssemblyInfoInputs.cache
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\obj\Debug\net9.0\ServidorHttpSimples.AssemblyInfo.cs
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\obj\Debug\net9.0\ServidorHttpSimples.csproj.CoreCompileInputs.cache
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\obj\Debug\net9.0\ServidorHttpSimples.sourcelink.json
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\obj\Debug\net9.0\ServidorHttpSimples.dll
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\obj\Debug\net9.0\refint\ServidorHttpSimples.dll
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\obj\Debug\net9.0\ServidorHttpSimples.pdb
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\obj\Debug\net9.0\ServidorHttpSimples.genruntimeconfig.cache
+c:\Users\santa\Documents\DesenvolvimentoWeb---ASP\ServidorHttpSimples\obj\Debug\net9.0\ref\ServidorHttpSimples.dll
