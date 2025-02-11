@@ -11,10 +11,13 @@ class ServidorHttp
 
     private int QtdeRequests { get; set; }
 
+    public string HtmlExemplo { get; set; }
+
 //Metodo Construtor
     public ServidorHttp(int porta = 8080)
     {
         this.Porta = porta;
+        this.CriarHtmlExemplo();
 
         //Objeto para escutar a porta.
         try
@@ -57,9 +60,12 @@ class ServidorHttp
             if (textoRequesicao.Length > 0 )
             {
                 Console.WriteLine($"\n{textoRequesicao}\n");
+                var bytesConteudo = Encoding.UTF8.GetBytes(this.HtmlExemplo,
+                    0, this.HtmlExemplo.Length);
                 var bytesCabecalho = GerarCabecalho("HTTP/1.1", "text/html;charset=utf-8",
-                "200",  0);
+                "200",  bytesConteudo.Length);
                 int bytesEnviados = conexao.Send(bytesCabecalho, bytesCabecalho.Length, 0);
+                bytesEnviados += conexao.Send(bytesConteudo, bytesConteudo.Length, 0);
                 conexao.Close();
                 Console.WriteLine($"\n{bytesEnviados} bytes enviados em resposta à requesição # {numeroRequest}.");
             }
@@ -76,5 +82,15 @@ class ServidorHttp
         texto.Append($"Content-Type: {tipoMime}{Environment.NewLine}");
         texto.Append($"Content-Length: {qtdBytes}{Environment.NewLine}{Environment.NewLine}");
         return Encoding.UTF8.GetBytes(texto.ToString());
+    }
+
+    private void CriarHtmlExemplo()
+    {
+        StringBuilder html = new StringBuilder();
+        html.Append("<!DOCTYPE html><html lang=\"pt-br\"<head><meta charset=\"UTF-8\">");
+        html.Append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+        html.Append("<title>Página Estática</title><head><body>");
+        html.Append("<h1>Página Estática</h1></body></html>");
+        this.HtmlExemplo = html.ToString();
     }
 }
