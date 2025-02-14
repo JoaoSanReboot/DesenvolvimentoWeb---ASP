@@ -13,6 +13,8 @@ class ServidorHttp
 
     public string HtmlExemplo { get; set; }
 
+    private SortedList<string, string> TiposMime { get; set; }
+
 //Metodo Construtor
     public ServidorHttp(int porta = 8080)
     {
