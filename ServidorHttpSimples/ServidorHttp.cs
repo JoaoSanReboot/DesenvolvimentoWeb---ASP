@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -128,4 +129,24 @@ class ServidorHttp
         }
         else return new byte[0];
     }
+
+    private void PopularTiposMIME()
+    {
+        this.TiposMime = new SortedList<string, string>();
+        this.TiposMime.Add(".html","text/html;charset=utf-8");
+        this.TiposMime.Add(".htm", "text/html;charset=utf-8");
+        this.TiposMime.Add(".css","text/css");
+        this.TiposMime.Add(".js", "text/javascript");
+        this.TiposMime.Add(".png", "image/png");
+        this.TiposMime.Add(".jpg", "imagem/jpeg");
+        this.TiposMime.Add(".gif", "image/gif");
+        this.TiposMime.Add(".svg","image/svg+xml");
+        this.TiposMime.Add(".webp", "image/webp");
+        this.TiposMime.Add(".ico", "image/ico");
+        this.TiposMime.Add("woff", "font/woff");
+        this.TiposMime.Add("woff2", "font/woff2");
+    }
+
 }
+
+
