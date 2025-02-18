@@ -21,6 +21,7 @@ class ServidorHttp
     {
         this.Porta = porta;
         this.CriarHtmlExemplo();
+        this.PopularTiposMIME();
 
         //Objeto para escutar a porta.
         try
