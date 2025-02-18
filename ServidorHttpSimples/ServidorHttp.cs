@@ -148,6 +148,11 @@ class ServidorHttp
         this.TiposMime.Add("woff2", "font/woff2");
     }
 
+public string ObterCaminhoFisicoArquivo(string arquivo)
+{
+    string caminhoArquivo = "diretorio dos arquivos" + arquivo.Replace("/", "\\");
+    return caminhoArquivo;
+}
 }
 
 
