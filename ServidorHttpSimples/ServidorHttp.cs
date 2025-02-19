@@ -80,7 +80,7 @@ class ServidorHttp
                 FileInfo fiArquivo = new FileInfo(ObterCaminhoFisicoArquivo(recursoBuscado));
                 if (fiArquivo.Exists)
                 {
-                    if (bytesConteudo.Length > 0)
+                    if (TiposMime.ContainsKey(fiArquivo.Extension.ToLower()))
                     {
                         bytesCabecalho = GerarCabecalho(versaoHttp, "text/html;charset=utf-8",
                         "200", bytesConteudo.Length);
