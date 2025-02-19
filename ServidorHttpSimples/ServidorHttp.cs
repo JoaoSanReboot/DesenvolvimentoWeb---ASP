@@ -16,7 +16,7 @@ class ServidorHttp
 
     private SortedList<string, string> TiposMime { get; set; }
 
-//Metodo Construtor
+    //Metodo Construtor
     public ServidorHttp(int porta = 8080)
     {
         this.Porta = porta;
@@ -61,7 +61,7 @@ class ServidorHttp
             conexao.Receive(bytesRequesicao, bytesRequesicao.Length, 0);
             string textoRequesicao = Encoding.UTF8.GetString(bytesRequesicao)
                 .Replace((char)0, ' ').Trim();
-            if (textoRequesicao.Length > 0 )
+            if (textoRequesicao.Length > 0)
             {
                 Console.WriteLine($"\n{textoRequesicao}\n");
 
@@ -76,19 +76,24 @@ class ServidorHttp
                 string nomeHost = linhas[1].Substring(iPrimeiroEspaco + 1);
 
                 byte[] bytesCabecalho = null;
-                var bytesConteudo = LerArquivo(recursoBuscado);
-                if (bytesConteudo.Length > 0)
+                byte[] bytesConteudo = null;
+                FileInfo fiArquivo = new FileInfo(ObterCaminhoFisicoArquivo(recursoBuscado));
+                if (fiArquivo.Exists)
                 {
-                bytesCabecalho = GerarCabecalho(versaoHttp, "text/html;charset=utf-8",
-                "200",  bytesConteudo.Length);
+                    if (bytesConteudo.Length > 0)
+                    {
+                        bytesCabecalho = GerarCabecalho(versaoHttp, "text/html;charset=utf-8",
+                        "200", bytesConteudo.Length);
+                    }
                 }
                 else
-                {  
+                {
                     bytesConteudo = Encoding.UTF8.GetBytes(
                         "<h1>Erro 404 - Arquivo Não Encontrado</h1>");
                     bytesCabecalho = GerarCabecalho(versaoHttp, "text/html;charset=utf-8",
                     "404", bytesConteudo.Length);
                 }
+
                 int bytesEnviados = conexao.Send(bytesCabecalho, bytesCabecalho.Length, 0);
                 bytesEnviados += conexao.Send(bytesConteudo, bytesConteudo.Length, 0);
                 conexao.Close();
@@ -121,7 +126,7 @@ class ServidorHttp
 
     public byte[] LerArquivo(string recurso)
     {
-        string diretorio = 
+        string diretorio =
             "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www";
         string caminhoArquivo = diretorio + recurso.Replace("/", "\\");
         if (File.Exists(caminhoArquivo))
@@ -134,25 +139,25 @@ class ServidorHttp
     private void PopularTiposMIME()
     {
         this.TiposMime = new SortedList<string, string>();
-        this.TiposMime.Add(".html","text/html;charset=utf-8");
+        this.TiposMime.Add(".html", "text/html;charset=utf-8");
         this.TiposMime.Add(".htm", "text/html;charset=utf-8");
-        this.TiposMime.Add(".css","text/css");
+        this.TiposMime.Add(".css", "text/css");
         this.TiposMime.Add(".js", "text/javascript");
         this.TiposMime.Add(".png", "image/png");
         this.TiposMime.Add(".jpg", "imagem/jpeg");
         this.TiposMime.Add(".gif", "image/gif");
-        this.TiposMime.Add(".svg","image/svg+xml");
+        this.TiposMime.Add(".svg", "image/svg+xml");
         this.TiposMime.Add(".webp", "image/webp");
         this.TiposMime.Add(".ico", "image/ico");
         this.TiposMime.Add("woff", "font/woff");
         this.TiposMime.Add("woff2", "font/woff2");
     }
 
-public string ObterCaminhoFisicoArquivo(string arquivo)
-{
-    string caminhoArquivo = "diretorio dos arquivos" + arquivo.Replace("/", "\\");
-    return caminhoArquivo;
-}
+    public string ObterCaminhoFisicoArquivo(string arquivo)
+    {
+        string caminhoArquivo = "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www" + arquivo.Replace("/", "\\");
+        return caminhoArquivo;
+    }
 }
 
 
