@@ -133,18 +133,6 @@ class ServidorHttp
         this.HtmlExemplo = html.ToString();
     }
 
-    public byte[] LerArquivo(string recurso)
-    {
-        string diretorio =
-            "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www";
-        string caminhoArquivo = diretorio + recurso.Replace("/", "\\");
-        if (File.Exists(caminhoArquivo))
-        {
-            return File.ReadAllBytes(caminhoArquivo);
-        }
-        else return new byte[0];
-    }
-
     private void PopularTiposMIME()
     {
         this.TiposMime = new SortedList<string, string>();
@@ -153,7 +141,7 @@ class ServidorHttp
         this.TiposMime.Add(".css", "text/css");
         this.TiposMime.Add(".js", "text/javascript");
         this.TiposMime.Add(".png", "image/png");
-        this.TiposMime.Add(".jpg", "imagem/jpeg");
+        this.TiposMime.Add(".jpeg", "image/jpeg");
         this.TiposMime.Add(".gif", "image/gif");
         this.TiposMime.Add(".svg", "image/svg+xml");
         this.TiposMime.Add(".webp", "image/webp");
