@@ -23,6 +23,7 @@ class ServidorHttp
         this.Porta = porta;
         this.CriarHtmlExemplo();
         this.PopularTiposMIME();
+        this.PopularDiretoriosHosts();
 
         //Objeto para escutar a porta.
         try
@@ -155,8 +156,8 @@ class ServidorHttp
     {
 
         this.DiretoriosHosts = new SortedList<string, string>();
-        this.DiretoriosHosts.Add("localhost", "");
-        this.DiretoriosHosts.Add("Ronaldinho.com", "");
+        this.DiretoriosHosts.Add("localhost", "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www\\localhost");
+        this.DiretoriosHosts.Add("ronaldinho.com", "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www\\ronaldinho.com");
 
     }
 
