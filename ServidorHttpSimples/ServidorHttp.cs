@@ -15,6 +15,7 @@ class ServidorHttp
     public string HtmlExemplo { get; set; }
 
     private SortedList<string, string> TiposMime { get; set; }
+    private SortedList<string, string> DiretoriosHosts { get; set; }
 
     //Metodo Construtor
     public ServidorHttp(int porta = 8080)
@@ -150,11 +151,21 @@ class ServidorHttp
         this.TiposMime.Add("woff2", "font/woff2");
     }
 
+    private void PopularDiretoriosHosts()
+    {
+
+        this.DiretoriosHosts = new SortedList<string, string>();
+        this.DiretoriosHosts.Add("localhost", "");
+        this.DiretoriosHosts.Add("Ronaldinho.com", "");
+
+    }
+
     public string ObterCaminhoFisicoArquivo(string arquivo)
     {
         string caminhoArquivo = "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www" + arquivo.Replace("/", "\\");
         return caminhoArquivo;
     }
+    
 }
 
 
