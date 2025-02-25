@@ -82,8 +82,17 @@ class ServidorHttp
                 {
                     if (TiposMime.ContainsKey(fiArquivo.Extension.ToLower()))
                     {
-                        bytesCabecalho = GerarCabecalho(versaoHttp, "text/html;charset=utf-8",
+                        bytesConteudo = File.ReadAllBytes(fiArquivo.FullName);
+                        string tipoMime = TiposMime[fiArquivo.Extension.ToLower()];
+                        bytesCabecalho = GerarCabecalho(versaoHttp, tipoMime,
                         "200", bytesConteudo.Length);
+                    }
+                    else
+                    {
+                        bytesConteudo = Encoding.UTF8.GetBytes(
+                            "<h1> Erro 415 - Tipo de arquivo não suportado. </h1>");
+                        bytesCabecalho = GerarCabecalho(versaoHttp, "text/html;charset=utf-8",
+                        "415", bytesConteudo.Length);
                     }
                 }
                 else
