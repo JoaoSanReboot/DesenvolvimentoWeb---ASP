@@ -79,7 +79,7 @@ class ServidorHttp
 
                 byte[] bytesCabecalho = null;
                 byte[] bytesConteudo = null;
-                FileInfo fiArquivo = new FileInfo(ObterCaminhoFisicoArquivo(recursoBuscado));
+                FileInfo fiArquivo = new FileInfo(ObterCaminhoFisicoArquivo(nomeHost, recursoBuscado));
                 if (fiArquivo.Exists)
                 {
                     if (TiposMime.ContainsKey(fiArquivo.Extension.ToLower()))
@@ -161,9 +161,10 @@ class ServidorHttp
 
     }
 
-    public string ObterCaminhoFisicoArquivo(string arquivo)
+    public string ObterCaminhoFisicoArquivo(string host, string arquivo)
     {
-        string caminhoArquivo = "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www" + arquivo.Replace("/", "\\");
+        string diretorio = this.DiretoriosHosts[host.Split(":")[0]];
+        string caminhoArquivo = diretorio + arquivo.Replace("/", "\\");
         return caminhoArquivo;
     }
     
