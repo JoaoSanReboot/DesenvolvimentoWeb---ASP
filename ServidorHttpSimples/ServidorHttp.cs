@@ -86,7 +86,8 @@ class ServidorHttp
                 {
                     if (TiposMime.ContainsKey(fiArquivo.Extension.ToLower()))
                     {
-                        bytesConteudo = File.ReadAllBytes(fiArquivo.FullName);
+                        //bytesConteudo = File.ReadAllBytes(fiArquivo.FullName);
+                        bytesConteudo = GerarHTMLDinamico(fiArquivo.FullName);
                         string tipoMime = TiposMime[fiArquivo.Extension.ToLower()];
                         bytesCabecalho = GerarCabecalho(versaoHttp, tipoMime,
                         "200", bytesConteudo.Length);
@@ -170,6 +171,20 @@ class ServidorHttp
         return caminhoArquivo;
     }
     
+    public byte[] GerarHTMLDinamico(string caminhoArquivo)
+    {
+        string coringa = "{{HtmlGerado}}";
+        string htmlModelo = File.ReadAllText(caminhoArquivo);
+        StringBuilder htmlGerado = new StringBuilder();
+        htmlGerado.Append("<ul>");
+        foreach (var tipo in this.TiposMime.Keys)
+        {
+            htmlGerado.Append($"Arquivos com extensão {tipo}</li>");
+        }
+        htmlGerado.Append("</ul>");
+        string textoHtmlGerado = htmlModelo.Replace(coringa, htmlGerado.ToString());
+        return Encoding.UTF8.GetBytes(textoHtmlGerado, 0, textoHtmlGerado.Length);
+    }
 }
 
 
