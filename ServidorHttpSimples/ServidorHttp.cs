@@ -153,14 +153,15 @@ class ServidorHttp
         this.TiposMime.Add(".ico", "image/ico");
         this.TiposMime.Add("woff", "font/woff");
         this.TiposMime.Add("woff2", "font/woff2");
+        this.TiposMime.Add(".dhtml", "text/html;charset=utf-8");
     }
 
     private void PopularDiretoriosHosts()
     {
 
         this.DiretoriosHosts = new SortedList<string, string>();
-        this.DiretoriosHosts.Add("localhost", "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www\\localhost");
-        this.DiretoriosHosts.Add("ronaldinho.com", "C:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www\\ronaldinho.com");
+        this.DiretoriosHosts.Add("localhost", "C:\\Users\\santa\\OneDrive\\Documentos\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www\\localhost");
+        this.DiretoriosHosts.Add("ronaldinho.com", "C:\\Users\\santa\\OneDrive\\Documentos\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\www\\ronaldinho.com");
 
     }
 

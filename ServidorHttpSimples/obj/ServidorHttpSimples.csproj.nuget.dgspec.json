@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj": {}
+    "c:\\Users\\santa\\OneDrive\\Documentos\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj": {}
   },
   "projects": {
-    "c:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj": {
+    "c:\\Users\\santa\\OneDrive\\Documentos\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj",
+        "projectUniqueName": "c:\\Users\\santa\\OneDrive\\Documentos\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj",
         "projectName": "ServidorHttpSimples",
-        "projectPath": "c:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj",
+        "projectPath": "c:\\Users\\santa\\OneDrive\\Documentos\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\ServidorHttpSimples.csproj",
         "packagesPath": "C:\\Users\\santa\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\santa\\Documents\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\obj\\",
+        "outputPath": "c:\\Users\\santa\\OneDrive\\Documentos\\DesenvolvimentoWeb---ASP\\ServidorHttpSimples\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
