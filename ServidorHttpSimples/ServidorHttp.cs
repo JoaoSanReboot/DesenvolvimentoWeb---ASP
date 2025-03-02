@@ -86,7 +86,11 @@ class ServidorHttp
                 {
                     if (TiposMime.ContainsKey(fiArquivo.Extension.ToLower()))
                     {
-                        //bytesConteudo = File.ReadAllBytes(fiArquivo.FullName);
+                        if (fiArquivo.Extension.ToLower() == ".dhmtl")
+                            bytesConteudo = GerarHTMLDinamico(fiArquivo.FullName);
+                        else
+                            bytesConteudo = File.ReadAllBytes(fiArquivo.FullName);
+
                         bytesConteudo = GerarHTMLDinamico(fiArquivo.FullName);
                         string tipoMime = TiposMime[fiArquivo.Extension.ToLower()];
                         bytesCabecalho = GerarCabecalho(versaoHttp, tipoMime,
