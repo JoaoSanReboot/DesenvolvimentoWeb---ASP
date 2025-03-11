@@ -74,11 +74,13 @@ class ServidorHttp
                 string recursoBuscado = linhas[0].Substring(
                     iPrimeiroEspaco + 1, iSegundoEspaco - iPrimeiroEspaco - 1);
                 if (recursoBuscado == "/") recursoBuscado = "/index.html";
+
                 recursoBuscado = recursoBuscado.Split("?")[0];
                 string versaoHttp = linhas[0].Substring(iSegundoEspaco + 1);
                 iPrimeiroEspaco = linhas[1].IndexOf(' ');
                 string nomeHost = linhas[1].Substring(iPrimeiroEspaco + 1);
-
+                string textoParametros = recursoBuscado.Contains("?") ?
+                    recursoBuscado.Split("?")[1] : "";
                 byte[] bytesCabecalho = null;
                 byte[] bytesConteudo = null;
                 FileInfo fiArquivo = new FileInfo(ObterCaminhoFisicoArquivo(nomeHost, recursoBuscado));
