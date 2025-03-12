@@ -74,13 +74,14 @@ class ServidorHttp
                 string recursoBuscado = linhas[0].Substring(
                     iPrimeiroEspaco + 1, iSegundoEspaco - iPrimeiroEspaco - 1);
                 if (recursoBuscado == "/") recursoBuscado = "/index.html";
-
+                string textoParametros = recursoBuscado.Contains("?") ?
+                    recursoBuscado.Split("?")[1] : "";
+                SortedList<string, string> parametros = ProcessarParametros(textoParametros);
                 recursoBuscado = recursoBuscado.Split("?")[0];
                 string versaoHttp = linhas[0].Substring(iSegundoEspaco + 1);
                 iPrimeiroEspaco = linhas[1].IndexOf(' ');
                 string nomeHost = linhas[1].Substring(iPrimeiroEspaco + 1);
-                string textoParametros = recursoBuscado.Contains("?") ?
-                    recursoBuscado.Split("?")[1] : "";
+
                 byte[] bytesCabecalho = null;
                 byte[] bytesConteudo = null;
                 FileInfo fiArquivo = new FileInfo(ObterCaminhoFisicoArquivo(nomeHost, recursoBuscado));
@@ -190,6 +191,13 @@ class ServidorHttp
         htmlGerado.Append("</ul>");
         string textoHtmlGerado = htmlModelo.Replace(coringa, htmlGerado.ToString());
         return Encoding.UTF8.GetBytes(textoHtmlGerado, 0, textoHtmlGerado.Length);
+    }
+
+    private SortedList<string, string> ProcessarParametros(string textoParametros)
+    {
+        SortedList<string, string> parametros = new SortedList<string, string>();
+
+        return parametros;
     }
 }
 
