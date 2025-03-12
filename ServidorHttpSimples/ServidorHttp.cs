@@ -90,7 +90,7 @@ class ServidorHttp
                     if (TiposMime.ContainsKey(fiArquivo.Extension.ToLower()))
                     {
                         if (fiArquivo.Extension.ToLower() == ".dhmtl")
-                            bytesConteudo = GerarHTMLDinamico(fiArquivo.FullName);
+                            bytesConteudo = GerarHTMLDinamico(fiArquivo.FullName, parametros);
                         else
                             bytesConteudo = File.ReadAllBytes(fiArquivo.FullName);
 
@@ -178,17 +178,30 @@ class ServidorHttp
         return caminhoArquivo;
     }
     
-    public byte[] GerarHTMLDinamico(string caminhoArquivo)
+    public byte[] GerarHTMLDinamico(string caminhoArquivo, SortedList<string, string> parametros)
     {
         string coringa = "{{HtmlGerado}}";
         string htmlModelo = File.ReadAllText(caminhoArquivo);
         StringBuilder htmlGerado = new StringBuilder();
         htmlGerado.Append("<ul>");
-        foreach (var tipo in this.TiposMime.Keys)
+      //foreach (var tipo in this.TiposMime.Keys)
+        //{
+        //   htmlGerado.Append($"<li>Arquivos com extensão {tipo}</li>");
+        //}
+        //htmlGerado.Append("</ul>");
+        if (parametros.Count > 0)
         {
-            htmlGerado.Append($"Arquivos com extensão {tipo}</li>");
+            htmlGerado.Append("<ul>");
+            foreach (var p in parametros)
+            {
+                htmlGerado.Append($"<li>{p.Key}={p.Value}</li>");
+            }
+            htmlGerado.Append("</ul>");
         }
-        htmlGerado.Append("</ul>");
+        else
+        {
+            htmlGerado.Append("<p>Nenhum parâmetro foi passado</p>");
+        }
         string textoHtmlGerado = htmlModelo.Replace(coringa, htmlGerado.ToString());
         return Encoding.UTF8.GetBytes(textoHtmlGerado, 0, textoHtmlGerado.Length);
     }
@@ -196,7 +209,14 @@ class ServidorHttp
     private SortedList<string, string> ProcessarParametros(string textoParametros)
     {
         SortedList<string, string> parametros = new SortedList<string, string>();
-
+        if (!string.IsNullOrEmpty(textoParametros.Trim()))
+        {
+            string [] paresChaveValor = textoParametros.Split("&");
+            foreach (var par in paresChaveValor)
+            {
+                parametros.Add(par.Split("=")[0].ToLower(), par.Split("=")[1].ToLower());
+            }
+        }
         return parametros;
     }
 }

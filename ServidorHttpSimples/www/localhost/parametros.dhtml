@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parãmetro Teste</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="shortcut icon" href="ronaldinho.jpeg">
+</head>
+<body>
+    <h1>Parãmetro na URL</h1>
+    <hr>
+    {{HtmlGerado}}
+</body>
+</html>
