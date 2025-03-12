@@ -93,10 +93,9 @@ class ServidorHttp
                         else
                             bytesConteudo = File.ReadAllBytes(fiArquivo.FullName);
 
-                        bytesConteudo = GerarHTMLDinamico(fiArquivo.FullName);
                         string tipoMime = TiposMime[fiArquivo.Extension.ToLower()];
                         bytesCabecalho = GerarCabecalho(versaoHttp, tipoMime,
-                        "200", bytesConteudo.Length);
+                            "200", bytesConteudo.Length);
                     }
                     else
                     {
