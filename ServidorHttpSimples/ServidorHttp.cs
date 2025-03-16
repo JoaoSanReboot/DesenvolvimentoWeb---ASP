@@ -214,7 +214,7 @@ class ServidorHttp
             string[] paresChaveValor = textoParametros.Split("&");
             foreach (var par in paresChaveValor)
             {
-                parametros.Add(par.Split("=")[0].ToLower(), par.Split("=")[1].ToLower());
+                parametros.Add(par.Split("=")[0].ToLower(), par.Split("=")[1]);
             }
         }
         return parametros;
