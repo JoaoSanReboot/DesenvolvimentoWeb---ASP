@@ -89,7 +89,7 @@ class ServidorHttp
                 {
                     if (TiposMime.ContainsKey(fiArquivo.Extension.ToLower()))
                     {
-                        if (fiArquivo.Extension.ToLower() == ".dhmtl")
+                        if (fiArquivo.Extension.ToLower() == ".dhtml")
                             bytesConteudo = GerarHTMLDinamico(fiArquivo.FullName, parametros);
                         else
                             bytesConteudo = File.ReadAllBytes(fiArquivo.FullName);
@@ -183,8 +183,8 @@ class ServidorHttp
         string coringa = "{{HtmlGerado}}";
         string htmlModelo = File.ReadAllText(caminhoArquivo);
         StringBuilder htmlGerado = new StringBuilder();
-        htmlGerado.Append("<ul>");
-      //foreach (var tipo in this.TiposMime.Keys)
+        //htmlGerado.Append("<ul>");
+        //foreach (var tipo in this.TiposMime.Keys)
         //{
         //   htmlGerado.Append($"<li>Arquivos com extensão {tipo}</li>");
         //}
@@ -211,7 +211,7 @@ class ServidorHttp
         SortedList<string, string> parametros = new SortedList<string, string>();
         if (!string.IsNullOrEmpty(textoParametros.Trim()))
         {
-            string [] paresChaveValor = textoParametros.Split("&");
+            string[] paresChaveValor = textoParametros.Split("&");
             foreach (var par in paresChaveValor)
             {
                 parametros.Add(par.Split("=")[0].ToLower(), par.Split("=")[1].ToLower());
