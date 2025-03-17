@@ -185,6 +185,15 @@ class ServidorHttp
        Type tipoPaginaDinamica = Type.GetType(nomeClassePagina, true, true);
        PaginaDinamica pd = Activator.CreateInstance(tipoPaginaDinamica) as PaginaDinamica;
        pd.HtmlModelo = File.ReadAllText(caminhoArquivo);
+       switch (metodoHttp.ToLower())
+       {
+            case "get":
+                return pd.Get(parametros);
+            case "post":
+                return pd.Post(parametros);
+            default:
+                return new byte[0];
+       }
     }
 
     private SortedList<string, string> ProcessarParametros(string textoParametros)
