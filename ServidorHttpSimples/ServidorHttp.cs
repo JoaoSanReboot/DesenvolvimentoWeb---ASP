@@ -90,7 +90,7 @@ class ServidorHttp
                     if (TiposMime.ContainsKey(fiArquivo.Extension.ToLower()))
                     {
                         if (fiArquivo.Extension.ToLower() == ".dhtml")
-                            bytesConteudo = GerarHTMLDinamico(fiArquivo.FullName, parametros);
+                            bytesConteudo = GerarHTMLDinamico(fiArquivo.FullName, parametros, metodoHttp);
                         else
                             bytesConteudo = File.ReadAllBytes(fiArquivo.FullName);
 
