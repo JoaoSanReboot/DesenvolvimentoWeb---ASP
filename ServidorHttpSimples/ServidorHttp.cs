@@ -147,7 +147,7 @@ class ServidorHttp
     private void CriarHtmlExemplo()
     {
         StringBuilder html = new StringBuilder();
-        html.Append("<!DOCTYPE html><html lang=\"pt-br\"<head><meta charset=\"UTF-8\">");
+        html.Append("<!DOCTYPE html><html lang=\"pt-br\"><head><meta charset=\"UTF-8\">");
         html.Append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
         html.Append("<title>Página Estática</title><head><body>");
         html.Append("<h1>Página Estática</h1></body></html>");
