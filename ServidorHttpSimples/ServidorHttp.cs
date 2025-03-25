@@ -1,3 +1,5 @@
+//Bibliotecas
+
 using System.Collections;
 using System.Net;
 using System.Net.Sockets;
@@ -6,6 +8,8 @@ using System.Web;
 
 class ServidorHttp
 {
+
+    //Defino os encapsulamentos da classe.
 
     private TcpListener Controlador { get; set; }
 
@@ -18,15 +22,18 @@ class ServidorHttp
     private SortedList<string, string> TiposMime { get; set; }
     private SortedList<string, string> DiretoriosHosts { get; set; }
 
-    //Metodo Construtor
+    //O construtor do programa, coração do projeto.
     public ServidorHttp(int porta = 8080)
     {
+
+        //Defino quais encapsulamentos irão ser utilizados ao executar a função da classe.
+
         this.Porta = porta;
         this.CriarHtmlExemplo();
         this.PopularTiposMIME();
         this.PopularDiretoriosHosts();
 
-        //Objeto para escutar a porta.
+        //Crio um objeto que "escuta" no IP definido dentro da porta.
         try
         {
             this.Controlador = new TcpListener(IPAddress.Parse("127.0.0.1"), this.Porta);
@@ -42,7 +49,7 @@ class ServidorHttp
         }
     }
 
-    //Recebe a requisição
+    //Receptor da requesição.
     private async Task AguardarRequests()
     {
         while (true)
@@ -54,16 +61,17 @@ class ServidorHttp
     }
 
 
-    //Processa a requisição
+    //Processa a requesição, o cerébro do projeto.
     private void ProcessarRequest(Socket conexao, int numeroRequest)
     {
         Console.WriteLine($"Processando request #{numeroRequest}...\n");
-        if (conexao.Connected)
+        if (conexao.Connected) //Verifico se a conexão foi conectada.
         {
+            //Caso tenha sido conectada defino a quantia em memória que será alocada no sistema.
             byte[] bytesRequesicao = new byte[1024];
             conexao.Receive(bytesRequesicao, bytesRequesicao.Length, 0);
             string textoRequesicao = Encoding.UTF8.GetString(bytesRequesicao)
-                .Replace((char)0, ' ').Trim();
+                .Replace((char)0, ' ').Trim(); //Depois elimino a quantia de memória não utilizada.
             if (textoRequesicao.Length > 0)
             {
                 Console.WriteLine($"\n{textoRequesicao}\n");
